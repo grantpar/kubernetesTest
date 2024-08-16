@@ -1,0 +1,8 @@
+docker build -t wattaponyz/node-app .
+docker run -d -p 3000:3000 wattaponyz/node-app
+
+docker login
+docker push wattaponyz/node-app:latest
+
+kubectl apply -f deployment.yaml
+minikube service nodeapp-service
